@@ -1,0 +1,38 @@
+namespace ACTIVIDAD_2___FLUJO_DE_CONTROL_PART._2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("¿Cuántos estudiantes desea registrar?: ");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("\nNombre\t\tNota 1\tNota 2\tNota 3\tNota 4\tPromedio\tEstado");
+            Console.WriteLine("------------------------------------------------------------------------------");
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine($"\nRegistro del estudiante #{i + 1}:");
+                Console.Write("Nombre: ");
+                string nombre = Console.ReadLine();
+
+                double sumaNotas = 0;
+                
+                for (int j = 1; j <= 4; j++)
+                {
+                    Console.Write($"Introduce la Nota {j}: ");
+                    double nota = double.Parse(Console.ReadLine());
+                    sumaNotas += nota;
+                }
+
+                double promedio = sumaNotas / 4;
+                string estado = (promedio >= 70) ? "APROBADO" : "REPROBADO";
+
+                Console.WriteLine($"\n{nombre}\t\t{sumaNotas / 4}\t{sumaNotas / 4}\t{sumaNotas / 4}\t{sumaNotas / 4}\t{promedio}\t\t{estado}");
+            }
+
+            Console.WriteLine("\nPresione cualquier tecla para salir...");
+            Console.ReadKey();
+        }
+    }
+}
